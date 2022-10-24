@@ -31,9 +31,9 @@ setup(
     author="Google Inc.",
     url="https://github.com/google-research/language",
     license="Apache 2.0",
-    install_requires=[
-        "tensorflow-gpu~=1.15.0",
-    ],
+    # install_requires=[
+    #     "tensorflow-gpu~=1.15.0",
+    # ],
     extras_require={
         "consistent-zero-shot-nmt": [
             "tensorflow-probability==0.6.0",

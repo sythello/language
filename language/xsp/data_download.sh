@@ -15,6 +15,7 @@
 #~/usr/bin/env bash
 
 TRAIN_ONLY_ARG="train_only"
+PSWD=""      ## REMOVE WHEN FINISHED RUNNING!!!!!!!!!!!
 
 # 1. Need to download the Spider dataset from the website directly (wget won't
 # work with Google drive links).
@@ -23,8 +24,9 @@ TRAIN_ONLY_ARG="train_only"
 
 if ! ( test -d spider )
 then
-    echo "Download the Spider dataset before proceeding (URL: https://drive.google.com/uc?export=download&id=1_AckYkinAnhqmRQtGsQgUKAnTHxxX5J0). After downloading, the current working directory should contain a subdirectory called spider."
-    exit
+    # echo "Download the Spider dataset before proceeding (URL: https://drive.google.com/uc?export=download&id=1_AckYkinAnhqmRQtGsQgUKAnTHxxX5J0). After downloading, the current working directory should contain a subdirectory called spider."
+    # exit
+    gdown 
 else
     echo "Spider is already downloaded."
 fi
@@ -74,7 +76,8 @@ then
     wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/geography.json || exit
     mv geography.json geoquery/geoquery.json
 
-    wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/geography-schema.csv || exit
+    # wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/geography-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/geography-schema.csv || exit
     mv geography-schema.csv geoquery/geoquery_schema.csv
 fi
 
@@ -86,7 +89,8 @@ then
     wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/atis.json || exit
     mv atis.json atis/atis.json
 
-    wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/atis-schema.csv || exit
+    # wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/atis-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/atis-schema.csv || exit
     mv atis-schema.csv atis/atis_schema.csv
 fi
 
@@ -98,7 +102,8 @@ then
     wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/academic.json || exit
     mv academic.json academic/academic.json
 
-    wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/academic-schema.csv || exit
+    # wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/academic-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/academic-schema.csv || exit
     mv academic-schema.csv academic/academic_schema.csv
 fi
 
@@ -110,9 +115,9 @@ then
     wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/restaurants.json || exit
     mv restaurants.json restaurants/restaurants.json
 
-    wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/restaurants-schema.csv || exit
+    # wget https://github.com/jkkummerfeld/text2sql-data/blob/master/data/restaurants-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/restaurants-schema.csv || exit
     mv restaurants-schema.csv restaurants/restaurants_schema.csv
-
 fi
 
 # Yelp
@@ -123,7 +128,8 @@ then
     wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/yelp.json || exit
     mv yelp.json yelp/yelp.json
 
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/yelp-schema.csv || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/yelp-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/yelp-schema.csv || exit
     mv yelp-schema.csv yelp/yelp_schema.csv
 fi
 
@@ -132,10 +138,12 @@ if ! (test -d scholar)
 then
     echo "Downloading Scholar annotations."
     mkdir scholar
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/scholar.json || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/scholar.json || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/scholar.json || exit
     mv scholar.json scholar/scholar.json
 
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/scholar-schema.csv || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/scholar-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/scholar-schema.csv || exit
     mv scholar-schema.csv scholar/scholar_schema.csv
 fi
 
@@ -144,10 +152,12 @@ if ! (test -d advising)
 then
     echo "Downloading Advising annotations."
     mkdir advising
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/advising.json || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/advising.json || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/advising.json || exit
     mv advising.json advising/advising.json
 
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/advising-schema.csv || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/advising-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/advising-schema.csv || exit
     mv advising-schema.csv advising/advising_schema.csv
 fi
 
@@ -156,10 +166,12 @@ if ! (test -d imdb)
 then
     echo "Downloading IMDB annotations."
     mkdir imdb
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/imdb.json || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/imdb.json || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/imdb.json || exit
     mv imdb.json imdb/imdb.json
 
-    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/imdb-schema.csv || exit
+    # wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/blob/master/data/imdb-schema.csv || exit
+    wget https://raw.githubusercontent.com/jkkummerfeld/text2sql-data/master/data/imdb-schema.csv || exit
     mv imdb-schema.csv imdb/imdb_schema.csv
 fi
 
@@ -200,6 +212,7 @@ database_installation() {
     cat data_utils/$2-prefix.txt $1 > $2-modified.sql
 
     echo "Installing "$2
+    # mysql -u root -p < $2-modified.sql
     mysql -u root -p < $2-modified.sql
 
     echo "Converting to sqlite3"
@@ -294,11 +307,14 @@ fi
 # Scholar
 if ! (test -f databases/scholar.db)
 then
-    if ! (test -f scholar_mysql_dump.db)
-    then
-        echo "To install Scholar, please download and unzip from https://drive.google.com/uc?id=0Bw5kFkY8RRXYRXdYYlhfdXRlTVk&export=download."
-        exit
-    fi
+    # if ! (test -f scholar_mysql_dump.db)
+    # then
+    #     echo "To install Scholar, please download and unzip from https://drive.google.com/uc?id=0Bw5kFkY8RRXYRXdYYlhfdXRlTVk&export=download."
+    #     exit
+    # fi
+
+    echo "Downloading and converting the Scholar datbase."
+    gdown 0Bw5kFkY8RRXYRXdYYlhfdXRlTVk
 
     database_installation scholar_mysql_dump.db scholar
 
